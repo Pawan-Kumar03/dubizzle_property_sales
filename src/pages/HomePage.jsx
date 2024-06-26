@@ -1,24 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Banner from "../components/Banner/Banner";
 import ResidentialForSale from "../components/ResidentialForSale/ResidentialForSale";
+import ListingsContext from "../contexts/ListingsContext";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
-    const [searchQuery, setSearchQuery] = useState("");
-    const [showAllListings, setShowAllListings] = useState(false); // State to track displaying all listings
+    const { listings } = useContext(ListingsContext);
+    const [searchParams, setSearchParams] = useState({});
+    const [showAllListings, setShowAllListings] = useState(false);
+    const [showPlaceAnAdPage, setShowPlaceAnAdPage] = useState(false);
+    const navigate = useNavigate();
 
     const handleSearch = (query) => {
-        setSearchQuery(query); // Update the search query state
-        setShowAllListings(false); // Ensure showAllListings is false when searching
+        setSearchParams(query);
+        setShowAllListings(false);
     };
 
     const handleDisplayAllListings = () => {
-        setShowAllListings(true); // Set showAllListings to true to display all listings
+        setShowAllListings(true);
+    };
+
+    const handlePlaceAnAd = () => {
+        setShowPlaceAnAdPage(true);
+        navigate("/place-an-ad"); // Navigate to the place an ad page
     };
 
     return (
         <>
-            <Banner onSearch={handleSearch} onDisplayAllListings={handleDisplayAllListings} /> {/* Pass handleSearch and handleDisplayAllListings functions */}
-            <ResidentialForSale searchQuery={searchQuery} showAll={showAllListings} /> {/* Pass searchQuery and showAllListings to ResidentialForSale */}
+            <Banner onSearch={handleSearch} onDisplayAllListings={handleDisplayAllListings} onPlaceAnAd={handlePlaceAnAd} />
+            <ResidentialForSale searchParams={searchParams} showAll={showAllListings} listings={listings} />
         </>
     );
 }

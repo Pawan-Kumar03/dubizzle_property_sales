@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Card({ item, onClick }) {
-  const { image, title, price, extension} = item;
+  const { image, title, price, extension } = item;
 
   const handleClick = () => {
     onClick(item); // Pass the entire item object to the onClick function

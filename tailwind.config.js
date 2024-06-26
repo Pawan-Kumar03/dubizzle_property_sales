@@ -27,7 +27,7 @@ export default {
 			},
 
 			backgroundImage: {
-				banner: "url('/home-banner.jpeg')"
+				banner: "url('/homepage-banner.png')"
 			}
 		},
 	},

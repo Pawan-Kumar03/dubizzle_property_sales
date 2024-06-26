@@ -2,7 +2,7 @@
 
 ## Description
 
-A real estate listings application that allows users to search and view property listings for sale in Sukkur. The application features a user-friendly interface with search functionality, property details, and theme switching between light and dark modes.
+A real estate listings application that allows users to search and view property listings for sale. The application features a user-friendly interface with search functionality, property details, and theme switching between light and dark modes.
 
 ## Technologies
 
@@ -45,5 +45,3 @@ A real estate listings application that allows users to search and view property
 2. Use the search bar to search for properties by title, price, or location.
 3. Click on a property card to view detailed information.
 4. Use the theme switcher button to toggle between light and dark modes.
-
-
